@@ -1,0 +1,7 @@
+tr[mealColor="false"] {
+    color: MediumSeaGreen;
+}
+
+tr[mealColor="true"] {
+    color: Red;
+}
