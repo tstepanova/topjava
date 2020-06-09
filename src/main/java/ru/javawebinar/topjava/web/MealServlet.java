@@ -2,7 +2,7 @@ package ru.javawebinar.topjava.web;
 
 import org.slf4j.Logger;
 import ru.javawebinar.topjava.repository.MealRepository;
-import ru.javawebinar.topjava.repository.InMemoryMealRepositoryImpl;
+import ru.javawebinar.topjava.repository.InMemoryMealRepository;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.MealTo;
 import ru.javawebinar.topjava.util.MealsUtil;
@@ -26,14 +26,14 @@ public class MealServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        mealRepository = new InMemoryMealRepositoryImpl();
+        mealRepository = new InMemoryMealRepository();
         initMeals();
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Integer mealId = request.getParameter("id") != null && !request.getParameter("id").isEmpty()? Integer.valueOf(request.getParameter("id")) : -1;
+        Integer mealId = request.getParameter("id") != null && !request.getParameter("id").isEmpty() ? Integer.valueOf(request.getParameter("id")) : -1;
 
         Meal meal = new Meal(TimeUtil.of(request.getParameter("dateTime")),
                 request.getParameter("description"),

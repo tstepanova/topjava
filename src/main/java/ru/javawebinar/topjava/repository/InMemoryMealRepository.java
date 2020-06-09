@@ -9,12 +9,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class InMemoryMealRepositoryImpl implements MealRepository {
+public class InMemoryMealRepository implements MealRepository {
 
     private Map<Integer, Meal> mealsMap;
     private AtomicInteger id = new AtomicInteger();
 
-    public InMemoryMealRepositoryImpl() {
+    public InMemoryMealRepository() {
         mealsMap = new ConcurrentHashMap<>();
     }
 
