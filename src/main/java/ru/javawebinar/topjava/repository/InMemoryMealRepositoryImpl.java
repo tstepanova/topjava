@@ -1,24 +1,25 @@
-package ru.javawebinar.topjava.service;
+package ru.javawebinar.topjava.repository;
 
 import ru.javawebinar.topjava.model.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MealServiceImpl implements MealService {
+public class InMemoryMealRepositoryImpl implements MealRepository {
 
-    private ConcurrentMap<Integer, Meal> mealsMap;
+    private Map<Integer, Meal> mealsMap;
     private AtomicInteger id = new AtomicInteger();
 
-    public MealServiceImpl() {
+    public InMemoryMealRepositoryImpl() {
         mealsMap = new ConcurrentHashMap<>();
     }
 
     public List<Meal> getAll() {
-        return new ArrayList<Meal>(mealsMap.values());
+        return new ArrayList<>(mealsMap.values());
     }
 
     public Meal add(Meal meal) {
