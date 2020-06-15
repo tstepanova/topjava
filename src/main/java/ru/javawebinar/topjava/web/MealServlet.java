@@ -33,7 +33,7 @@ public class MealServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Integer mealId = request.getParameter("id") != null && !request.getParameter("id").isEmpty() ? Integer.valueOf(request.getParameter("id")) : -1;
+        Integer mealId = Integer.valueOf(request.getParameter("id"));
 
         Meal meal = new Meal(TimeUtil.of(request.getParameter("dateTime")),
                 request.getParameter("description"),
@@ -53,7 +53,7 @@ public class MealServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         String action = request.getParameter("action");
-        int mealId = request.getParameter("id") != null ? Integer.valueOf(request.getParameter("id")) : -1;
+        Integer mealId = Integer.valueOf(request.getParameter("id"));
 
         switch (action == null ? "view" : action) {
             case "add":

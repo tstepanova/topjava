@@ -23,7 +23,7 @@ public class InMemoryMealRepository implements MealRepository {
     }
 
     public Meal add(Meal meal) {
-        int id = createID();
+        int id = createId();
         meal.setId(id);
         mealsMap.put(id, meal);
         return meal;
@@ -44,7 +44,7 @@ public class InMemoryMealRepository implements MealRepository {
         mealsMap.remove(id);
     }
 
-    private int createID() {
+    private int createId() {
         return id.getAndIncrement();
     }
 }
