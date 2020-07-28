@@ -2,6 +2,7 @@ package ru.javawebinar.topjava;
 
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.to.MealTo;
+import ru.javawebinar.topjava.util.MealsUtil;
 
 import java.time.Month;
 import java.util.List;
@@ -28,6 +29,8 @@ public class MealTestData {
     public static final Meal ADMIN_MEAL2 = new Meal(ADMIN_MEAL_ID + 1, of(2020, Month.JANUARY, 31, 21, 0), "Админ ужин", 1500);
 
     public static final List<Meal> MEALS = List.of(MEAL7, MEAL6, MEAL5, MEAL4, MEAL3, MEAL2, MEAL1);
+    public static final List<MealTo> MEALS_TO = MealsUtil.getTos(MEALS, MealsUtil.DEFAULT_CALORIES_PER_DAY);
+    public static final List<MealTo> MEALS_TO_FILTERED = MealsUtil.getTos(List.of(MEAL7, MEAL6, MEAL5, MEAL4), MealsUtil.DEFAULT_CALORIES_PER_DAY);
 
     public static Meal getNew() {
         return new Meal(null, of(2020, Month.FEBRUARY, 1, 18, 0), "Созданный ужин", 300);
