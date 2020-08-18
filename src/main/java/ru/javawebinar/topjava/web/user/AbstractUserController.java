@@ -16,6 +16,8 @@ import static ru.javawebinar.topjava.util.ValidationUtil.checkNew;
 public abstract class AbstractUserController {
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
+    public static final String EMAIL_ALREADY_EXISTS = "User with this email already exists";
+
     @Autowired
     private UserService service;
 
